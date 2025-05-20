@@ -1,5 +1,5 @@
 import React from "react";
-import "./MovieCard.css"; // для стилів картки
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
@@ -10,6 +10,9 @@ const MovieCard = ({ movie }) => {
         <p><strong>Жанр:</strong> {movie.genre}</p>
         <p>{movie.description}</p>
         <p><strong>Сеанс:</strong> {movie.time}</p>
+        <Link to={`/booking/${movie.id}`}>
+          <button className="book-btn">Забронювати</button>
+        </Link>
       </div>
     </div>
   );
