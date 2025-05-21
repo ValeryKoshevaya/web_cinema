@@ -1,24 +1,13 @@
-import { useState } from 'react';
-import { movies } from '../data/movies';
+// pages/Home.jsx
+import React from 'react';
 import MovieList from '../components/MovieList';
+import { movies } from '../data/movies'; // Імпортуємо фільми
 
-const Home = () => {
-  const [search, setSearch] = useState("");
-  const filtered = movies.filter(m =>
-    m.title.toLowerCase().includes(search.toLowerCase())
-  );
-
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder="Пошук фільму..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <MovieList movies={filtered} />
+const Home = () => (
+    <div className="home-page">
+        <h1 className="home-title">🎥 Зараз у кінотеатрах</h1>
+        <MovieList movies={movies} />
     </div>
-  );
-};
+);
 
 export default Home;
